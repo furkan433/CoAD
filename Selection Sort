@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+   vector< int> a ={-10,-5,-70,500,20,10,20,1,2,3,4,5,8,9,10,40,70,100};
+   int i,j,minn,loop=0;
+   int right=a.size();
+    for(i=0;i<right-1;i++){
+            minn=i;
+        for(j=i+1;j<right;j++){
+            if(a[j]<a[minn]){
+            minn=j;
+            }
+        }
+       int temp=a[i];
+        a[i]=a[minn];
+        a[minn]=temp;
+
+    }
+
+    cout<<"after sorted:  ";
+    for(i=0;i<right;i++){
+        cout<<a[i]<<"  ";
+    }
+
+    return 0;
+}
