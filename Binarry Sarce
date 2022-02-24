@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+   vector< int> a ={1,2,3,4,5,8,9,10,40,70,100};
+   int n;
+   cin>>n;
+   int left=0,midil;
+   int right=a.size();
+
+  while(left<=right){
+     midil=(left+right)/2;
+    if(n==a[midil]){
+        cout<<"index number is :"<<midil<<endl;
+        return 0;
+   }
+   else if(a[midil]<n){
+    left=midil+1;
+   }
+   else{
+    right=midil-1;
+   }
+  }
+   cout<<"item is not found !"<<endl;
+    return 0;
+}
