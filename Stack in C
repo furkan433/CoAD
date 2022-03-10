@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+#define CAPACITY 5
+using namespace std;
+int top;
+int data[CAPACITY];
+
+void push(int value){
+if(top<CAPACITY){
+    top=top+1;
+    data[top]=value;
+    cout<<value<<endl;
+
+}
+else{
+    cout<<"Exception data is full\n";
+}
+}
+int pop(){
+if(top>=0){
+    int value=data[top];
+    top=top-1;
+    return value;
+}
+cout<<"exception empty\n";
+return -1;
+}
+int peek(){
+if(top>=0){
+return data[top];
+}
+cout<<"exception empty\n";
+return -1;
+
+}
+
+int main()
+{
+    pop();
+    push(10);
+    push(11);
+    push(12);
+    push(13);
+    push(14);
+   cout<<"delate is"<< pop()<<endl;
+    push(12);
+    cout<<peek()<<endl;
+
+return 0;
+}
