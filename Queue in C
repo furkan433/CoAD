@@ -1,0 +1,70 @@
+#include<bits/stdc++.h>
+#define CAPACITY 5
+int ourQueue[CAPACITY];
+using namespace std;
+int front=0,rear=-1,totalitam=0;
+bool isfull()
+{
+    if(totalitam==CAPACITY)
+    {
+        return true;
+    }
+    return false;
+}
+bool isampty(){
+if(totalitam==0)
+    {
+        return true;
+    }
+    return false;
+}
+
+void enqueue(int item)
+{
+    if(isfull()){
+        cout<<"sorry the list is full\n";
+        return;
+    }
+   rear=(rear+1)%CAPACITY;
+    ourQueue[rear]=item;
+    totalitam++;
+
+}
+void printinfo(){
+int i;
+cout<<"queue:";
+for(i=0;i<CAPACITY;i++){
+    cout<<ourQueue[i]<<"\t";
+}
+cout<<endl;
+}
+int dequeue(){
+    if(isampty()){
+        printf("Sorry, the Queue is empty.\n");
+        return -1;
+    }
+    int frontItem = ourQueue[front];
+    ourQueue[front] = -1;
+    front = (front + 1) % CAPACITY;
+    totalitam--;
+    return frontItem;
+}
+int main()
+{
+    dequeue();
+    enqueue(10);
+    enqueue(11);
+    enqueue(12);
+    enqueue(13);
+    enqueue(14);
+    printinfo();
+    enqueue(15);
+    dequeue();
+    dequeue();
+    printinfo();
+    enqueue(15);
+    enqueue(16);
+    printinfo();
+
+    return 0;
+}
