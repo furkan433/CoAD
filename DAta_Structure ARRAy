@@ -1,0 +1,90 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+//insarting array
+void insart_Array(int item,int k,int n,int LA[]){
+    int j=n;
+   while( j >= k) {
+      LA[j+1] = LA[j];
+      j--;
+   }
+
+   LA[k] = item;
+
+   printf("The array elements after insertion :\n");
+}
+
+
+//Delating Array
+void delate_Array(int k,int n,int LA[]){
+    int j=k;
+   while( j < n) {
+      LA[j-1] = LA[j];
+      j++;
+   }
+
+   n=n-1;
+
+  printf("The array elements after deletion :\n");
+
+
+}
+//Sarceing array
+
+
+void sarce_Array(int item,int n,int LA[]){
+int j=0;
+while(j<n){
+    if(LA[j]==item)
+        break;
+        j++;
+}
+cout<<"Sarece elemint is:  "<<item<<endl<<"item number is:"<<j+1<<endl;
+}
+
+//Changing Array
+
+
+void change_item(int item,int k,int n,int LA[]){
+    LA[k-1] = item;
+
+   printf("The array elements after updation :\n");
+
+   for(int i = 0; i<n; i++) {
+      printf("LA[%d] = %d \n", i, LA[i]);
+   }
+}
+void printinfo(int LA[],int n){
+    int i;
+    for(i = 0; i<n; i++) {
+      printf("LA[%d] = %d \n", i, LA[i]);
+   }
+}
+
+int main()
+{
+int LA[] = {1,3,5,7,8};
+   int item = 10, k = 3, n = 5;
+   int i = 0, j = n;
+   printf("The original array elements are :\n");
+ printinfo(LA,n);
+ cout<<endl;
+ insart_Array(item,k,n,LA);
+ n=n+1;
+ printinfo(LA,n);
+ cout<<endl;
+ delate_Array(k,n,LA);
+ n=n-1;
+  printinfo(LA,n);
+  cout<<endl;
+ sarce_Array(item,n,LA);
+ cout<<endl;
+ n=5;
+ item=12;
+ change_item(item,k,n,LA);
+
+
+
+    return 0;
+}
